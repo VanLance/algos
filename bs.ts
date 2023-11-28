@@ -18,3 +18,4 @@ function bs(haystack: number[], needle: number):boolean {
 
 
 console.log(bs([1,2,3,4,5,6], 7))
+console.log(bs([1,2,3,4,5,6], 4))
