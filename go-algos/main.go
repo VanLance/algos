@@ -6,7 +6,14 @@ import (
 
 func main(){
 	// testBsSlice()
-	testCb()
+	// testCb()
+	testBubbleSort()
+}
+
+func testBubbleSort(){
+	nums := []int{100,1,88,4,77,17,44}
+	bubbleSort(nums)
+	fmt.Println(nums)
 }
 
 func testCb(){
