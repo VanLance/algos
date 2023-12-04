@@ -5,12 +5,12 @@ type node struct {
 	next *node
 }
 
-type Queue struct {
+type queue struct {
 	head *node
 	tail *node
 }
 
-func (q Queue) enqueue(item int){
+func (q *queue) enqueue(item int){
 	new_node := &node{ value: item }
 	if q.tail == nil {
 		q.head.next = new_node
@@ -21,11 +21,11 @@ func (q Queue) enqueue(item int){
 	}
 }
 
-func (q Queue) deque(item int) int{
+func (q *queue) deque(item int) int{
 	current := q.head
 	q.head = current.next
 	return current.value
 }	
-func (q Queue) peek(item int) int{
+func (q queue) peek(item int) int{
 	return q.head.value
 }	

@@ -7,8 +7,30 @@ import (
 func main(){
 	// testBsSlice()
 	// testCb()
-	testBubbleSort()
+	// testBubbleSort()
+	testStack()
 }
+
+func testStack(){
+	stack := stack{ }
+	fmt.Println(stack)
+	stack.push(7)
+	fmt.Println(stack.head.value, 7)
+	stack.push(10)
+	fmt.Println(stack.head.value, 10)
+	stack.push(15)
+	fmt.Println(stack.head.value, 15)
+
+	fmt.Println(stack.head.prev.value, 10)
+
+	fmt.Println(stack.pop(),15)
+	fmt.Println(stack.pop(),10)
+	fmt.Println(stack.pop(),7)
+	stack.pop()
+	fmt.Println(stack.head, nil)
+}
+
+func testQueue(){}
 
 func testBubbleSort(){
 	nums := []int{100,1,88,4,77,17,44}
