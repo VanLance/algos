@@ -43,6 +43,19 @@ class BST:
         return self.search(value, node.left)
     return False
 
+  def bfs(self, item):
+    q = [self.root]
+    while q:
+      current = q.pop(0)
+      if current.left:
+        q.append(current.left)
+      if current.right:
+        q.append(current.right)
+      print(current.value)
+      if current.value == item:
+        return True, item
+    return False, -1      
+
   def in_order(self, node = None, nodes = []):
     node = self.get_node(node)
     if node.left:
@@ -77,18 +90,23 @@ bst.append(110)
 bst.append(105)
 bst.append(115)
 
-print(bst.root.value)
-print(bst.root.right.value)
-print(bst.root.right.right.value)
-print(bst.root.left.value)
+print(bst.bfs(115))
 
-print(bst.search(100))
-print(bst.search(110))
-print(bst.search(50))
-print(bst.search(75))
+print(bst.bfs(800))
 
-# print(bst.walk())
-print(bst.get_min())
-print(bst.get_max())
 
-print(bst.in_order())
+# print(bst.root.value)
+# print(bst.root.right.value)
+# print(bst.root.right.right.value)
+# print(bst.root.left.value)
+
+# print(bst.search(100))
+# print(bst.search(110))
+# print(bst.search(50))
+# print(bst.search(75))
+
+# # print(bst.walk())
+# print(bst.get_min())
+# print(bst.get_max())
+
+# print(bst.in_order())

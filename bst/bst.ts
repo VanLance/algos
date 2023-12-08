@@ -35,6 +35,25 @@ class BST<T> {
     }
   }
 
+  bfs(item: number): [boolean, number]{
+    const q = [this.head] 
+    while (q.length){
+      const current = q.shift()
+      
+      if(current?.left){
+        q.push(current.left)
+      }
+      if(current?.right){
+        q.push(current.right)
+      }
+      console.log(current?.value)
+      if(current?.value === item){
+        return [true, item]
+      }
+    }
+    return [false,-1]
+  }
+
   walk(node: undefined | BSTNode<T> = undefined, nodes: (T|undefined)[] = []): (T|undefined)[]{
     if (!node) {
       node = this.head
@@ -86,6 +105,10 @@ bst.append(115)
 // console.log(bst.head?.right?.right?.value)
 // console.log(bst.head?.left?.value)
 
-console.log(bst.walk())
-console.log(bst.get_min())
-console.log(bst.get_max())
+// console.log(bst.walk())
+// console.log(bst.get_min())
+// console.log(bst.get_max())
+
+bst.bfs(115)
+console.log
+(bst.bfs(119))
