@@ -11,6 +11,8 @@ func main(){
 	testStack()
 }
 
+
+
 func testStack(){
 	stack := stack{ }
 	fmt.Println(stack)
