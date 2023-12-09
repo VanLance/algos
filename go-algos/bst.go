@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // import "fmt"
 
 type BSTNode struct {
@@ -36,4 +38,35 @@ func (b *BST) append(num int) {
 			}
 		}
 	}
+}
+
+func (b BST) inOrder(node BSTNode, nodes []int)[]int{
+	if node.left != nil {
+		nodes = b.inOrder(*node.left,nodes)
+	}
+	nodes = append(nodes, *node.value)
+	if node.right != nil{
+		nodes = b.inOrder(*node.right, nodes)
+	}
+  return nodes
+}
+
+func (b BST) bfs(item int) bool{
+	i := 0
+	q := []BSTNode{b.root}
+	for len(q) > i{
+		curr := q[i]
+		if curr.left != nil{
+			q = append(q, *curr.left)
+		}
+		if curr.right != nil{
+			q = append(q, *curr.right)
+		}
+		fmt.Println(*curr.value)
+		if *curr.value == item {
+			return true
+		}
+		i++
+	}
+	return false
 }
