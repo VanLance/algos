@@ -1,10 +1,10 @@
-type BSTNode<T> = {
+export type BSTNode<T> = {
   value: T
   left?: BSTNode<T>
   right?: BSTNode<T>
 }
 
-class BST<T> {
+export default class BST<T> {
   public head: BSTNode<T> | undefined
 
   constructor(){
