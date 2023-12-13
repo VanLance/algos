@@ -90,14 +90,15 @@ class BST:
         return True, item
     return False, -1      
 
-  def in_order(self, node = None, nodes = []):
-    print(nodes)
+  def in_order(self, node = None, nodes = None):
+    if not nodes:
+      nodes = [] 
     node = self.get_node_recursion(node)
     if node.left:
-      self.in_order(node.left, nodes)
+      nodes = self.in_order(node.left, nodes)
     nodes.append(node.value)
     if node.right:
-      self.in_order(node.right, nodes)
+      nodes = self.in_order(node.right, nodes)
     return nodes
 
   def get_min_node(self, node = None):
@@ -141,16 +142,22 @@ bst.append(50)
 bst.append(110)
 bst.append(105)
 bst.append(115)
+bst.append(25)
+print(bst.in_order(),'before')
+
+
+bst.delete(110)
+print(bst.in_order(),'after ')
+
+bst.delete(50)
+print(bst.in_order(),'after ')
+bst.delete(25)
+print(bst.in_order(),'after ')
+
 
 # print(bst.bfs(115))
 
 # print(bst.bfs(800))
-
-bst.delete(110)
-print(bst.in_order(),'after ')
-bst.delete(50)
-print(bst.in_order(None, []),'after ')
-
 # print(bst.root.value)
 # print(bst.root.right.value)
 # print(bst.root.right.right.value)

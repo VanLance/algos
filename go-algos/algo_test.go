@@ -5,6 +5,15 @@ import (
 	"testing"
 )
 
+func TestQuickSort(t *testing.T){
+	nums := []int{ 100, 88, 77, 99, 55, 44,22,87,65, 1 }
+	quickSort(&nums, 0 , len(nums) - 1)
+	for num, i := range nums{
+		if i < len(nums) - 2 && num > nums[i+1]{
+			t.Errorf("Expected nums sorted got %v", nums)
+		}
+	}
+}
 
 var	bst = BST{}
 

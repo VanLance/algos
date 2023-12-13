@@ -1,4 +1,4 @@
-import { BSTNode } from "./bst";
+import { BSTNode } from "../bst";
 
 function compareTrees(node1: BSTNode<number>|undefined, node2: BSTNode<number>|undefined):boolean{
  if (node1 === undefined && node2 === undefined){

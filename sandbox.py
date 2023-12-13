@@ -25,3 +25,22 @@ catrina = {
 }
 
 print(catrina['school'])
+
+
+def foo(bar = []):
+  for i in range(3):
+    bar.append(i)
+  return bar
+
+
+print(foo())
+print(foo())
+print(foo())
+
+def bar(string=''):
+  string += 'foo'
+  return string
+
+print(bar())
+print(bar())
+print(bar())
