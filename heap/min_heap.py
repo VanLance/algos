@@ -16,6 +16,7 @@ class MinHeap:
 
   def heap_down(self, i):
     l_child_i = self.get_l_child(i)
+    
     r_child_i = self.get_r_child(i)
     if l_child_i >= self.length:
       return

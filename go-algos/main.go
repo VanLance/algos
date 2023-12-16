@@ -8,7 +8,7 @@ func main(){
 	// testBsSlice()
 	// testCb()
 	// testBubbleSort()
-	testStack()
+	// testStack()
 }
 
 
