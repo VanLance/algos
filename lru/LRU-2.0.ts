@@ -33,7 +33,12 @@ class LeastRecentlyUsed<T> {
     this.trimCache()
   }
 
-  put(v: T, newValue: T){}
+  put(v: T, newValue: T){
+    const id = this.reverseCache.get(v)
+    if (!id) return
+    const node = this.cache.get(id)!
+    node.value = newValue
+  }
 
   detach(node: LRUNode<T>){
     if (node == this.head ){
