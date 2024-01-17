@@ -4,7 +4,7 @@ type TypeNode<T> = {
   prev?: TypeNode<T>
 } 
 
-export default class Queue<T> {
+class Queue<T> {
   public length: number = 0
   public head: TypeNode<T>
   public tail: TypeNode<T> | null
@@ -31,6 +31,7 @@ export default class Queue<T> {
     if (this.head.next){
       this.head = this.head.next
     }
+    this.length--
     return current.value
   } 
 

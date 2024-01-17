@@ -29,3 +29,10 @@ let fizbuzz: number | undefined = 2
 fizz = buzz = fizbuzz = undefined
 
 console.log(fizz,buzz,fizbuzz)
+const newSet = new Set([[0],[0]])
+console.log(newSet)
+
+const ob = {[3]: true}
+console.log(ob[3])
+
+console.log([[-1,-1,2],[-1,0,1],[-1,-2,3],[-1,0,1],[-2,0,2],[-3,0,3],[-3,1,2],[-4,0,4],[-4,1,3]].sort(),[[-4,0,4],[-4,1,3],[-3,-1,4],[-3,0,3],[-3,1,2],[-2,-1,3],[-2,0,2],[-1,-1,2],[-1,0,1]].sort() )

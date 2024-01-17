@@ -1,6 +1,7 @@
 function threeSum(alist: number[]): number[][] {
   alist.sort((a:number, b:number) => a - b)
   const numsSet = new Set<string>()
+  numsSet.keys
   for (const [i, num] of alist.entries()) {
     let leftI = i + 1;
     let rightI = alist.length - 1;
