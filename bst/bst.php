@@ -42,9 +42,71 @@ class BST
         }
     }
 
-    public function removeNode(): void
+    public function removeNode(int $val, ?Node $currentNode = null): void
     {
+        if($currentNode == null) $currentNode = $this->head;
 
+        if ( $currentNode->right->value == $val ){
+            $nodeLeft = $currentNode->right->left;
+            $nodeRight = $currentNode->right->right;
+        
+            if( $nodeLeft == null )
+            {
+                $currentNode->right = $nodeRight;
+            }
+            elseif ( $nodeRight == null)
+            {
+                $currentNode->right = $nodeLeft;
+            }
+            else 
+            {
+
+            }
+        }
+        elseif( $currentNode->left->value == $val ){
+            $nodeLeft = $currentNode->left->left;
+            $nodeRight = $currentNode->left->right;
+        
+            if( $nodeLeft == null )
+            {
+
+            }
+            elseif ( $nodeRight == null)
+            {
+
+            }
+            else 
+            {
+
+            }
+        }
+
+        if( $val > $currentNode->value )
+        {
+            $this->removeNode($val, $currentNode->right);
+        }
+        elseif ($val < $currentNode->value)
+        {
+            $this->removeNode($val, $currentNode->left);
+        } 
+        else 
+        {
+            $nodeLeft = $currentNode->left;
+            $nodeRight = $currentNode->right;
+        
+            if( $nodeLeft == null )
+            {
+
+            }
+            elseif ( $nodeRight == null)
+            {
+
+            }
+            else 
+            {
+
+            }
+        }
     }
 
     public function inOrder(?Node $currentNode = null): void
