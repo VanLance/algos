@@ -47,9 +47,19 @@ class BST
 
     }
 
-    public function inOrder(): void
+    public function inOrder(?Node $currentNode = null): void
     {
+        if($currentNode == null)
+        {
+            $currentNode = $this->head;
+        }
+        if($currentNode->left)
+        {
+            $this->inOrder($currentNode->left);
+        }
+        echo $currentNode->value . "\n";
 
+        if($currentNode->right) $this->inOrder($currentNode->right);
     }
 }
 
@@ -63,5 +73,7 @@ $bst->addNode(10);
 $bst->addNode(11);
 $bst->addNode(1);
 
-echo $bst->head->value;
-echo $bst->head->right->value;
+// echo $bst->head->value;
+// echo $bst->head->right->value;
+
+$bst->inOrder();
