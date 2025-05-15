@@ -2,30 +2,20 @@
 
 function mergeSort(array $nums): array {
 
+    if(count($nums) <= 1) return $nums;
+
     $middle = floor(count($nums) / 2);
     $leftHalf = array_slice($nums, 0, $middle);
     $rightHalf = array_slice($nums, $middle);
 
-    echo "leftHalf \n";
-    print_r($leftHalf);
-    echo "right half \n";
-    print_r($rightHalf);
+    $leftHalf = mergeSort($leftHalf);
+    $rightHalf = mergeSort($rightHalf);
 
-    if( count($leftHalf) > 1 )
-    {   
-        $leftHalf = mergeSort($leftHalf);
-    }
-    if( count($rightHalf) > 1 )
-    {
-        $rightHalf = mergeSort($rightHalf);
-    }
 
     $leftPoint = 0;
     $rightPoint = 0;
     $originalPoint = 0;
     
-    $leftValue = $leftHalf[$leftPoint];
-    $rightValue = $rightHalf[$rightPoint];
 
     while($leftPoint < count($leftHalf) && $rightPoint < count($rightHalf))
     {
