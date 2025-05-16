@@ -1,6 +1,6 @@
 <?php
 
-use Dom\Node as DomNode;
+
 
 class Node{
 
