@@ -70,8 +70,8 @@ $queue = new Queue();
 
 $queue->enqueue('foo');
 $queue->enqueue('bar');
-$queue->enqueue('foobar');
+/* $queue->enqueue('foobar');
 $queue->enqueue('eggs');
 $queue->enqueue('spam');
 
-$queue->printQueue();
+$queue->printQueue(); */

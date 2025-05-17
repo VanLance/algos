@@ -2,7 +2,8 @@
 
 class Node{
     public ?Node $next;
-    public ?Node $prev;  
+    public ?Node $prev;
+    public string $value;
 
     function __construct(string $value){
 
@@ -41,7 +42,7 @@ class LRU {
         }
     }
 
-    public function queue(Node $node){
+    public function queue(Node &$node){
 
         if(!$this->head)
         {
@@ -51,15 +52,27 @@ class LRU {
         }
         else
         {
+            echo "old head {$this->head->value}\n";
             $tempNode = $this->head;
+
             $this->head = $node;
-            $tempNode->prev = $this->head;
+            echo "new head {$this->head->value}\n";
+            
             $this->head->next = $tempNode;
+            echo "connection newHead->oldHead {$this->head->value} {$this->head->next->value}\n";
+
+            $tempNode->prev = $this->head;
+            echo "connection oldHead->newHead {$this->head->next->value} {$this->head->next->prev->value}\n";
+            
         }
     }
 
     private function updateMostRecent(string $nodeKey) {
         $nodeUsed = $this->nodeMap[$nodeKey];
+
+        echo $nodeUsed->value . " update";
+        echo $nodeUsed->next->value . " next";
+        echo $nodeUsed->prev->value . " prev";
 
         $oldPrevNode = $nodeUsed->prev;
         $oldNextNode = $nodeUsed->next;
@@ -107,4 +120,23 @@ class LRU {
         unset($this->nodeMap[$target]);
     }
 
+    public function display(?Node $node = null){
+        
+        if(!$node) $node = $this->head;
+
+        while($node){
+            echo "{$node->value}\n";
+            $node = $node->next;
+        }
+    }
 }
+
+$lru = new LRU(5);
+
+$lru->append("foo");
+$lru->append("bar");
+$lru->append("fooBar");
+
+$lru->display();
+$lru->append("bar");
+// $lru->display();
